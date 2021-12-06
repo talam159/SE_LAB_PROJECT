@@ -1,0 +1,20 @@
+.sidebar div {
+    /* width: 220px; */
+    /* margin-bottom:13px ; */
+    /* background-color: white; */
+    /* height: 50px; */
+}
+.container-card {
+    background-color: white;
+    /* padding: 13px; */
+    /* height: 60vh; */
+    min-width:800px;
+    margin: auto;
+}
+.profile-card {
+    width: 100%;
+}
+
+body{
+    background-color: rgb(233, 233, 233);
+}
