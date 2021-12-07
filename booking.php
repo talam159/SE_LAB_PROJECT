@@ -13,9 +13,7 @@ $email= $_POST['email'];
 $phone= $_POST['phone'];
 $mname= $_SESSION['m'];
 $cname=$_SESSION['name'];
-// $price=$_SESSION['price'];
-// $advance=$_SESSION['advance'];
-// $due=$price-$advance;
+
 
 
 $s1= " select * from musician where Name = '$mname' ";
