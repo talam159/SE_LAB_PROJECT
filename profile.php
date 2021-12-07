@@ -1,3 +1,9 @@
+<?php
+                  include('db.php'); 
+                  $results = mysqli_query( $con, "SELECT * FROM profiles" )
+		or die("Can not execute query");
+                                 
+              ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,11 +30,25 @@
                 <div class="shadow rounded-3 p-1 col-12" style="max-height: 100px;">
                     <div class="row align-items-center px-2">
                         <div class="col-5">
-                            <img  style="width: 50px;height: 50px; border: 1px solid black;border-radius: 50%;margin-left: 13px;" />
+                            <!--fetch image-->
+                            <img src="img/<?php echo $img?>" alt="" style="width: 50px;height: 50px; border: 1px solid black;border-radius: 50%;margin-left: 13px;" />
                         </div>
                         <div class="col-7 mt-1">
-                            <h6>Tanveer Alam</h6>
-                            <p class="m-0 p-0">Title: Graphics Designer</p>
+                            <!--<h6> Tanveer Alam</h6>-->
+                            <?php
+                                    include('db.php'); 
+                                    $results = mysqli_query( $con, "SELECT * FROM profiles where m_id=1" )
+                            or die("Can not execute query");
+                            while( $rows = mysqli_fetch_array( $results ) ) {
+                                extract( $rows );
+                                echo "<h6> $Name </h6>";
+                                echo "<p> $Genre </p>";
+                                
+        }
+                                 
+              ?>
+                            
+                            <!--<p class="m-0 p-0">Title: Graphics Designer</p>-->
                         </div>
                     </div>
                 </div>
