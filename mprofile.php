@@ -37,7 +37,7 @@
   <section id="hero">
           
                <?php
-                  session_start()
+                  session_start();
                   include('db.php');
                   $str=$_SESSION['id'];
                   
