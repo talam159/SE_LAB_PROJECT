@@ -35,6 +35,26 @@
   </section>
   <!-- End Header -->
 
+  <!-- Hero Section  -->
+  <section id="hero">
+          
+               <?php
+                 
+                  include('db.php');
+                  $str=$_GET['id'];
+                  $sql="select * from musician where m_id = $str";
+                  $res=mysqli_query($con,$sql);
+                  if(mysqli_num_rows($res)>0){
+                    while($row=mysqli_fetch_assoc($res)){
+                        $img=$row['image'];
+          
+                        }
+                    }
+                    
+              ?>
+          
+              <img  src="img/<?php echo $img?>" alt="" height="100">
+
 
   
 </body>
