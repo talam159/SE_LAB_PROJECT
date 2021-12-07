@@ -1,18 +1,10 @@
 <?php
 
-	$events = $_events["f0"];
-
-	$date = $_date["f0"];
-
-	$place = $_place["f0"];
-
-	$email = $_email["f0"];
-
-	$phone = $_phone["f0"];
-
-
-
-	// $f1 = $_GET["f1"];
+	$event = $_GET["event"];
+	$date = $_GET["date"];
+	$place = $_GET["place"];
+	$email = $_GET["email"];
+	$number = $_GET["number"];
 
 
 
@@ -24,15 +16,12 @@
 
 
 
-	mysqli_query( $connect, "INSERT INTO music VALUES ( '', '$events', '$date', '$place', '$email', '$phone', )" )
+	mysqli_query( $connect, "INSERT INTO booking VALUES ( '', '$event', '$date' , '$place', '$email' , '$number'  )" )
 
 		or die("Can not execute query");
 
 
 
-	echo " recorded ";
-	
-	<div class="page">
-		<h2> data saved !  </h2>
-		<h3>Wait for the confirmation ! </h3>
-	</div>
+	echo "Record inserted <br>  wait for the furture information"
+
+?>
