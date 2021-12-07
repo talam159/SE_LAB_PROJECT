@@ -1,46 +1,38 @@
 <?php
 
-session_start();
+	$events = $_events["f0"];
 
-$con = mysqli_connect('localhost','root','');
+	$date = $_date["f0"];
 
-mysqli_select_db($con, 'musiconnect');
+	$place = $_place["f0"];
 
-$event= $_POST['events'];
-$date= $_POST['date'];
-$place= $_POST['place'];
-$email= $_POST['email'];
-$phone= $_POST['phone'];
-$mname= $_SESSION['m'];
-$cname=$_SESSION['name'];
+	$email = $_email["f0"];
+
+	$phone = $_phone["f0"];
 
 
 
-$s1= " select * from musician where Name = '$mname' ";
-
-$result1 = mysqli_query($con, $s1);
-$row = $result1->fetch_assoc();
-$price=$row['price'];
-$advance=$row['advance'];
-// $advance=$advance1/100;
-$due=$price-$advance;
+	// $f1 = $_GET["f1"];
 
 
 
+	require_once('db_connect.php');
+
+	$connect = mysqli_connect( HOST, USER, PASS, DB )
+
+		or die("Can not connect");
 
 
-	$reg= "insert into booking(musicianname,customername,customeremail,customerphone,event,date,place,totalprice,advance,due) values ('$mname' ,'$cname', '$email','$phone','$event','$date','$place','$price','$advance','$due')";
-	mysqli_query($con , $reg);
+
+	mysqli_query( $connect, "INSERT INTO music VALUES ( '', '$events', '$date', '$place', '$email', '$phone', )" )
+
+		or die("Can not execute query");
+
+
+
+	echo " recorded ";
 	
-	// $_SESSION['email']=$email;
-	// $_SESSION['name']=$artist;
-	// $_SESSION['genre']=$genre;
-	// $_SESSION['pass']=$pass;
-	
-	
-// }
-
-
-
-
-?>
+	<div class="page">
+		<h2> data saved !  </h2>
+		<h3>Wait for the confirmation ! </h3>
+	</div>
