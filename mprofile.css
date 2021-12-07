@@ -1,0 +1,261 @@
+
+
+
+@import 'https://fonts.googleapis.com/css?family=Montserrat:300, 400, 700&display=swap';
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+ html {
+	   font-size: 8px;   
+	font-family: 'Montserrat', sans-serif;
+	scroll-behavior: smooth;
+} 
+a {
+	text-decoration: none;
+}
+
+
+
+img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+p {
+	color: black;
+	font-size: 1.4rem;
+	margin-top: 5px;
+	line-height: 2.5rem;
+	font-weight: 300;
+	letter-spacing: .05rem;
+}
+
+
+
+
+/* Header section */
+#header {
+	
+	position:absolute;
+	z-index: 100;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: auto;
+}
+#header .header {
+	min-height: 8vh;
+	background-color: rgba(31, 30, 30, 0.24);
+	transition: .3s ease background-color;
+}
+#header .nav-bar {
+	
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	height: 100%;
+	max-width: 1300px;
+	padding: 0 10px;
+}
+#header .nav-list ul {
+	list-style: none;
+	position: absolute;
+	background-color: rgb(31, 30, 30);
+	width: 100vw;
+	height: 100vh;
+	left: 100%;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	z-index: 1;
+	overflow-x: hidden;
+	transition: .5s ease left;
+}
+#header .nav-list ul.active {
+	left: 0%;
+}
+#header .nav-list ul a {
+	font-size: 2.5rem;
+	font-weight: 500;
+	letter-spacing: .2rem;
+	text-decoration: none;
+	color: white;
+	text-transform: uppercase;
+	padding: 20px;
+	display: block;
+}
+#header .nav-list ul a::after {
+	content: attr(data-after);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(0);
+	color: rgba(240, 248, 255, 0.021);
+	font-size: 13rem;
+	letter-spacing: 50px;
+	z-index: -1;
+	transition: .3s ease letter-spacing;
+}
+#header .nav-list ul li:hover a::after {
+	transform: translate(-50%, -50%) scale(1);
+	letter-spacing: initial;
+}
+#header .nav-list ul li:hover a {
+	color: rgb(4, 68, 47);
+}
+
+	
+
+
+/* End Header section */
+
+/* Hero Section */
+#hero  {
+
+	/* background-image: url(./img/user.svg); */
+	/* background-size: 60px; */
+	background-position: top center;
+	position: relative;
+	z-index: 1;
+	background-repeat: no-repeat;
+	background-position-x: 925px;
+	background-position-y: 250px;
+}
+
+#hero::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	/* background-color: black; */
+	opacity: .7;
+	z-index: -1;
+}
+#hero .hero {
+	max-width: 600px;
+	/* margin: 0 auto; */
+	/* padding: 0 50px; */
+	justify-content: center;
+	font-size: small;
+	
+}
+#hero .image-container img{
+	width: 600px;
+	height: auto;
+	flex-direction: column;
+	justify-content: center;
+}
+
+
+#hero h1{
+	/* margin-top: 50px; */
+	color: white;
+	font-size: small;
+    
+}
+
+
+#hero h1 span {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 0;
+	background-color: aquamarine;
+	animation: text_reveal_box 1s ease;
+	animation-delay: .5s;
+}
+#hero h1:nth-child(1) span {
+	animation-delay: .5s;
+}
+#hero h1:nth-child(2) span {
+	animation-delay: 1.5s;
+}
+#hero h1:nth-child(3) span {
+	animation-delay: 2.5s;
+}
+
+.herocontainer{
+    background-color: black;
+    margin-top: 0px;
+    padding: 20px;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+/* menubar starts */
+#menubar .menubutton{
+    margin-top: 20px;
+    margin-left: 600px;
+    justify-content: center;
+}
+
+.menubutton .button  {
+    background-color: rgb(0, 0, 0); /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+    border: 3px solid rgba(0, 128, 0, 0.561);
+  }
+  .menubutton .button:hover {
+    background-color: black; /* Green */
+    color: rgb(8, 187, 8);
+  }
+/* #menubar .price {
+	background-color: rgb(10, 10, 10); /* Green */
+    /* border: none;
+    color: rgb(224, 204, 204);
+    padding: 15px 32px;
+	width:200px;
+	position: absolute;
+	right: 5px; */
+    /* text-align: center;
+    text-decoration: none; */
+    /* display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s; */
+     /* margin-left:500 px;  */
+    /* margin-right: 5px; */
+    /* border-radius: 5px;
+    border: 3px solid rgba(0, 128, 0, 0.561);
+
+}  */
+{box-sizing: border-box;}
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  background-color: rgb(221, 58, 58);
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+  /* When the inputs get focus, do something */
+
+
+/* End Hero Section */
+
+
+
+  
+	
+  
