@@ -55,6 +55,27 @@
           
               <img  src="img/<?php echo $img?>" alt="" height="100">
 
+  <div class="herocontainer">
+        
+        <!-- <div> -->
+            <!-- <div class="details"> -->
+                  <?php
+                  
+                      include('db.php');
+                      $str=$_GET['id'];
+                      $sql="select * from musician where m_id = $str";
+                      $res=mysqli_query($con,$sql);
+                      if(mysqli_num_rows($res)>0){
+                      while($row=mysqli_fetch_assoc($res)){
+                      $name = $row['Name'];
+                      echo  '<h1>'.$row['Name'].'</h1>';
+                      echo "<br/>";
+                      echo '<h1>'.'Genre: '.$row['Genre'].'</h1>';
+                      }
+                    }
+
+                    ?>
+
 
   
 </body>
