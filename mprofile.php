@@ -60,9 +60,12 @@
         <!-- <div> -->
             <!-- <div class="details"> -->
                   <?php
-                  
+                      
+                      session_start();
                       include('db.php');
                       $str=$_GET['id'];
+                      $_SESSION['id']=$str;
+                      
                       $sql="select * from musician where m_id = $str";
                       $res=mysqli_query($con,$sql);
                       if(mysqli_num_rows($res)>0){
@@ -76,7 +79,15 @@
 
                     ?>
 
+ </div>
+</section>
 
+<section id="menubar">
+          <div class="menubutton">
+            
+            <a href="popup.php"><button class="button" type="button">Set price</button></a> 
+            </div>
+</section>
   
 </body>
 </html>
