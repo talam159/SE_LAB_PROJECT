@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="hire.css">
     <title>Document</title>
 </head>
+<style>
+    .colord{
+        color: white;
+    }
+</style>
 <body>
  
 
@@ -18,17 +23,17 @@
                     <div class="form-header">
                         <h1>Confirm Your Date</h1>
                     </div>
-                    <form method=get action=booking.php>
+                    <form method=get action=hireing.php>
                         
-                        office name :<input type=text name=office_name placeholder= "Office Name"> <br>
+                       <span class="colord">Office Name :</span>  <br><input type=text name=office_name placeholder= "Office Name"> <br>
                         <p>
-                        Start date: <input type=date name=start_date> <br>
+                        <span class="colord">Start Date :</span> <br><input type=date name=start_date> <br>
                         <p>
-                        place: <input type=text name=place> <br>
+                        <span class="colord">Place :</span> <br><input type=text name=place> <br>
                         <p>
-                        email: <input type=text name=email> <br>
+                        <span class="colord">Email :</span> <br><input type=text name=email> <br>
                         <p>
-                        number: <input type=text name=number> <br>
+                        <span class="colord">Number :</span> <br><input type=text name=number> <br>
                         <p>
                         <input type=submit value=Insert>
                     </form>
