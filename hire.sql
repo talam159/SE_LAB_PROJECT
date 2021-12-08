@@ -1,5 +1,5 @@
-CREATE DATABASE if not exists connects;
-use connects;
+CREATE DATABASE if not exists hire;
+use hire;
 
 CREATE table booking (
     id int(10) AUTO_INCREMENT UNIQUE,
