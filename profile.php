@@ -1,137 +1,225 @@
-<?php
-                  include('db.php'); 
-                  $results = mysqli_query( $con, "SELECT * FROM profiles" )
-		or die("Can not execute query");
-                                 
-              ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- CSS only -->
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <!-- JavaScript Bundle with Popper -->
-
-
-    <link rel="stylesheet" href="./profile.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="profile.css?v=<?php echo time();?>">
+  <script src="refresh.js"></script>
+  <title>Musiconnect</title>
 </head>
-
 <body>
-    <div class="container mt-5">
-        <div class="d-flex container-card shadow rounded-3 p-5">
-            <div class="row sidebar">
-                <div class="shadow rounded-3 p-1 col-12" style="max-height: 100px;">
-                    <div class="row align-items-center px-2">
-                        <div class="col-5">
-                            <!--fetch image-->
-                            <img src="img/<?php echo $img?>" alt="" style="width: 50px;height: 50px; border: 1px solid black;border-radius: 50%;margin-left: 13px;" />
-                        </div>
-                        <div class="col-7 mt-1">
-                            <!--<h6> Tanveer Alam</h6>-->
-                            <?php
-                                    include('db.php'); 
-                                    $results = mysqli_query( $con, "SELECT * FROM profiles where m_id=1" )
-                            or die("Can not execute query");
-                            while( $rows = mysqli_fetch_array( $results ) ) {
-                                extract( $rows );
-                                echo "<h6> $Name </h6>";
-                                echo "<p> $Genre </p>";
-                                
-        }
-                                 
-              ?>
-                            
-                            <!--<p class="m-0 p-0">Title: Graphics Designer</p>-->
-                        </div>
-                    </div>
-                </div>
-                <div class="shadow rounded-3 p-1 h-75 mt-3 col-12">
-                    <div class="d-flex flex-column h-100 justify-content-around align-items-center">
-                        <a>My Profile</a>
-                        <a>Portfolio</a>
-                        <a>Address</a>
-                        <a>Reviews</a>
-                        <a>History</a>
-                        <!-- <a class=""></a> -->
-                        <button class="btn btn-danger">Logout</button>
-                    </div>
-                </div>
-            </div>
-            <div class="profile-card shadow rounded-3 p-4 mx-4 row">
-                <div class="col-12">
-                    <h4 class="pb-2" style="border-bottom: 1px solid blue;">My profile</h4>
-                </div>
-                <div class="col-12">
-                    <div class="row mt-3">
-                        <div class="col-6">
-                            <div class="row mb-5">
-                                <div class="col-6">Full Name</div>
-                                <div class="col-6">Tanveer Alam</div>
-                            </div>
-                            <div class="row mb-5">
-                                <div class="col-6">Email</div>
-                                <div class="col-6">abcd@gmail.com</div>
-                            </div>
-                            <div class="row mb-5">
-                                <div class="col-6">Address</div>
-                                <div class="col-6">Dhaka, Bangladesh</div>
-                            </div>
-                            <div class="row mb-5">
-                                <div class="col-6">Birthday</div>
-                                <div class="col-6">9, April</div>
-                            </div>
-                            <div class="row mb-5">
-                                <div class="col-12">
-                                    <button class="btn btn-warning text-white px-4 py-3">Change Password</button>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-6 rounded-3 p-5 shadow">
-                            <div>
-                            <h6 style="color:rgb(133, 133, 133);">Prlfile picture</h6>
-                            <div>
-                                <img style="height: 180px;width: 180px;border: 1px solid red;"/>
-                            </div>
-                            <div class="mt-3">
-                                <button class="btn btn-outline-warning">Change Picture</button>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-12 mt-4">
-                    <div class="row">
-                        <div class="col-6"> Registered - 17 Aug 2020</div>
-                        <div class="col-6">
-                            <button class="btn btn-primary px-4 w-50 ">Edit Profile</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <!-- Header -->
+  <section id="header">
+    <div class="header container">
+      <div class="nav-bar">
+        <div class="brand">
+          <a href="#hero"><h1><span>MUSI</span>CON<span>N</span>ect</h1></a>
         </div>
+        <div class="nav-list">
+          <div class="hamburger"><div class="bar"></div></div>
+          <ul>
+            <li><a href="mhome.php" data-after="Home">HOME</a></li>
+            <!-- <li><a href="#" data-after="Service">LOGIN</a></li> -->
+            <li><a href="mprofile.php" data-after="Projects">Profile</a></li>
+            <!-- <li><a href="#" data-after="Contact">LATEST PROGRAM</a></li> -->
+            <li><a href="#" data-after="Contact">About</a></li> 
+          </ul>
+        </div>
+      </div>
     </div>
+  </section>
+  <!-- End Header -->
 
 
+  <!-- Hero Section  -->
+  <section id="hero">
+          
+              <?php
+              session_start();
+                  include('db.php');
+                  $_SESSION['m'] = $_GET['id'];
+                  $str=mysqli_real_escape_string($con,$_GET['id']);
+                  $sql="select * from musician where Name like '%$str%'";
+                  $res=mysqli_query($con,$sql);
+                  if(mysqli_num_rows($res)>0){
+                    while($row=mysqli_fetch_assoc($res)){
+                        $img=$row['image'];
+          
+                        }
+                    }
+                    
+              ?>
+          
+              <img  src="img/<?php echo $img?>" alt="" height="100">
+          
+
+    <div class="herocontainer">
+        
+      <div>
+          <div class="details">
+            
+
+            </script> -->
+                <?php
+                    include('db.php');
+                    
+                    
+                    $mname=$_GET['id'];
+                    $str=mysqli_real_escape_string($con,$_GET['id']);
+                    $sql="select * from musician where Name like '%$str%'";
+                    $res=mysqli_query($con,$sql);
+                    if(mysqli_num_rows($res)>0){
+                    while($row=mysqli_fetch_assoc($res)){
+                    echo  '<h1>'.'Name: '.$row['Name'].'</h1>';
+                    echo "<br/>";
+                    echo '<h1>'.'Genre: '.$row['Genre'].'</h1>';
+                    echo '<iframe style="display:none;" name="target"></iframe>';
+                    session_start();
+                    $sender_id=$_SESSION['id'];
+                    $s='select * from follow where sender_id = '.$sender_id.' && receiver_id= '.$row['m_id'].'';
+                    
+                    $res1=mysqli_query($con,$s);
+                    $num1 = mysqli_num_rows($res1);
+                    if ($result = $con->query($s)){
+	                  $row1 = $result->fetch_assoc();
+                    }
+                    if($num1==1){
+                      $output="<a href='follow.php?name=".$row['Name']."&id=".$row['m_id']."' target='target'> <button  type='button' class='cta' onclick='refresh()'>Unfollow</button> </a>";
+                      header("refresh: 1;");
+                    }
+                    else{
+                      $output="<a href='follow.php?name=".$row['Name']."&id=".$row['m_id']."' target='target'> <button  type='button' class='cta' onclick='refresh()'>Follow</button> </a>";
+                      header("refresh: 1;");
+                    }
+
+                    echo $output;
+                    
+                     //header("refresh: 0;");
+                    // echo "<a href='follow.php?name=".$row['Name']."&id=".$row['m_id']."' target='target'> <button  type='button' class='cta' onclick='button1()'>Follow</button> </a>" ;                  
+                    // echo "<a href='#?name=".$row['Name']."&id=".$row['m_id']."' target='target'> <button type='button' class='cta2' onclick='button3()'>Follower</button> </a>" ;
+                    // echo "<a href='#?name=".$row['Name']."&id=".$row['m_id']."' target='target'> <button style='margin-right:10px' type='button' class='cta2' onclick='button3()'>Following</button> </a>" ;
+                    echo "<div class='dropdown'>";
+                    echo "<button type='button' class='cta2'>Follower</button>";
+                      echo "<div class='dropdown-content'>";
+                            $receiver_id=$row['m_id'];
+                            $s1='select * from follow where receiver_id= '.$receiver_id.'';
+                            $res2=mysqli_query($con,$s1);
+                            if(mysqli_num_rows($res2)>0){
+                              while($row2=mysqli_fetch_assoc($res2)){  
+                                  echo "<a href='#'>".$row2['sender_name']."</a>";
+                              }
+                            }
+                            else{
+                              echo "<a href='#'>'No Follower'</a>";
+                            }      
+                      echo "</div>";
+                
+                    echo "</div>";
+                    
+                    
+                    echo "<div class='dropdown2'>";
+                    echo "<button type='button' class='cta2'>Following</button>";
+                      echo "<div class='dropdown-content2'>";
+                            $receiver_id=$row['m_id'];
+                            $s1='select * from follow where sender_id= '.$receiver_id.'';
+                            $res2=mysqli_query($con,$s1);
+                            if(mysqli_num_rows($res2)>0){
+                              while($row2=mysqli_fetch_assoc($res2)){  
+                                  echo "<a href='#'>".$row2['receiver_name']."</a>";
+                              }
+                            }
+                            else{
+                              echo "<a href='#'>'No Following'</a>";
+                            }      
+                      echo "</div>";
+                
+                    echo "</div>";
 
 
+                    }
+                    }  
+                            
+        echo "</div>";
+        
+        
+        
+        ?>
+       
+        
+        
+          
+      </div>
+    </div>
+  </section>
+  <br>
+  <!-- End Hero Section  -->
+  <section id="menubar">
+          <div class="menubutton">
+            <a href="mprofile.php"><button class="button" type="button">Timeline</button></a>
+            <a href="calendar.php"><button class="button" type="button">Calendar</button></a>
+            <!-- <button class="button" type="button"></button> -->
+            <?php
+            echo "<a href='book.php?name=$mname'><button class='button' type='button'>Book Now</button></a>";
+            ?>
+          </div>
+  </section>
 
+<!-- Slideshow container -->
+<section id="softwares">
+<div class="slideshow-container">
+  <div><br>
+    <div class="section-top">
+      <h1 class="section-title">News<span> Feed</span></h1>
+                      <div id='post_bar'>
+      
+                      <?php
+                      include('db.php');
+                      $str1=mysqli_real_escape_string($con,$_GET['id']);
+                      $sql="select * from musician where Name like '%$str1%'";
+                      $res=mysqli_query($con,$sql);
+                      
+                      if ($res = $con->query($sql)){
+                        $row1 = $res->fetch_assoc();
+                        }
+                      if(mysqli_num_rows($res)>0){
+                        $sql1="select * from posts where m_id = ".$row1['m_id']."";
+                        $res1=mysqli_query($con,$sql1);
+                        if(mysqli_num_rows($res1)>0){
+                         
+                          
+                      while($row=mysqli_fetch_assoc($res1)){
+                                  echo  "<div id='post'>";
+                                  echo "<div>";
+                                  echo "<div class='status_bar'>".$row1['Name']."</div>";
+                                  
+                                  echo "<p class='posttext'>";
+                            
+                                   echo  $row['post'];
+                            
+                                  echo "</p>";
+                                  echo "<br/>";
+                                  echo "<br/>";  
+                                  echo "</div>";
+                                  echo "<br>";
+                                  echo "<br>";
+                                  echo "</div>";
+                                  echo "<br>";
+                                  echo "<br>";
+                      }
+                      }
+                    }
+                       
+                            ?>
 
+      </div>
 
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
+    </div>
+  </div>
+<br>
+</section>
 </body>
-
 </html>
+
+
