@@ -7,7 +7,7 @@
         private $error="";
        public function create_post($data){
            if(!empty($data['post'])){
-                $post= addslashes($data['post']);
+                $post= addslashes($data['post']); 
                 $id= $_SESSION['id'];
                 
                 $postid= $this->create_postid();
