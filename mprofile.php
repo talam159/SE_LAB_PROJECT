@@ -17,7 +17,7 @@ session_start();
 
         }
     }
-    //get post
+    //collect post
     $post =new Post();
     $id1=$_SESSION['id'];
     $posts=$post->get_posts($id1);
@@ -213,11 +213,12 @@ session_start();
                   echo  "<div class='dots'>...</div>";
                   echo "</button>";
                   echo "<div class='dropdown_content'>";
-                  echo "<a href='deletepost.php>Delete Post</a>";
+                  // echo "<a href='updatepost.php?text=$row_user[post]'>Edit Post</a>";
+                  echo "<a href='deletepost.php?text=$row_user[post]'>Delete Post</a>";
                  
                   
+                  echo "</div>";
                 echo "</div>";
-              echo "</div>";
                 
                 include("post.php");
                 
