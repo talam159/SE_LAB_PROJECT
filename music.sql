@@ -8,9 +8,9 @@ CREATE table booking (
     place varchar(100) NOT NULL,
     email varchar(30) NOT NULL,
     number int(20) NOT NULL,
-    place varchar(30) NOT NULL,
-   
+    status varchar(20) ,
     
     PRIMARY KEY(id) 
 );
+
 
