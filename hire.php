@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Document</title>
+    <title>Create Hire Post</title>
 </head>
 <style>
     .colord{
@@ -60,21 +60,33 @@
     .booking-form .form-header {
         text-align: center;
         position: relative;
-        margin-bottom: 30px;
+        margin-bottom: 40px;
     }
 
     .booking-form .form-header h1 {
         font-weight: 700;
         font-size: 42px;
         margin: 0px;
-        color: #fff
+        color: #fff;
     }
-    
-    
+    .booking-form .box{
+        padding:4px 0px; 
+        padding-right:40px;
+
+    }
+    .booking-form .box1{
+        padding: 3px 0px; 
+        padding-right:64px;
+    }
+    .booking-form .btn{
+        background: orange;
+        color: white;
+        width: 60px;
+        padding: 6px;
+    }
+   
 </style>
 <body>
- 
-
 <div id="booking" class="section">
     <div class="section-center">
         <div class="container">
@@ -82,21 +94,23 @@
                 <div class="booking-form">
                     <div class="form-header">
                         <h1>Confirm Your Date</h1>
+                        <hr>
                     </div>
-                    <form method=get action=hireing.php>
+                    <form class=form method=get action=hireing.php>
                         
-                       <span class="colord">Office Name :</span>  <br><input type=text name=office_name placeholder= "Office Name"> <br>
+                       <span class="colord">Office Name :</span>  <br><input class=box type=text name=office_name placeholder= "Office Name"> <br>
                         <p>
-                        <span class="colord">Start Date :</span> <br><input type=date name=start_date> <br>
+                        <span class="colord">Start Date :</span> <br><input class=box1 type=date name=start_date> <br>
                         <p>
-                        <span class="colord">Place :</span> <br><input type=text name=place> <br>
+                        <span class="colord">Place :</span> <br><input class=box type=text name=place> <br>
                         <p>
-                        <span class="colord">Email :</span> <br><input type=text name=email> <br>
+                        <span class="colord">Email :</span> <br><input class=box type=text name=email> <br>
                         <p>
-                        <span class="colord">Number :</span> <br><input type=text name=number> <br>
+                        <span class="colord">Number :</span> <br><input class=box type=text name=number> <br>
                         <p>
-                        <input type=submit value=Insert>
+                        <input type=submit class="btn" value=Insert>
                     </form>
+                    <hr>
                 </div>
             </div>
         </div>

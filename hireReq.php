@@ -8,7 +8,7 @@
 		or die("Can not execute query");
 
 	echo "<table border> \n";
-	echo "<th>office_name</th> <th>start_date</th> <th>place</th> <th>email</th> <th>number</th> <th>Delete</th> <th>Update</th>\n";
+	echo "<th>Office Name</th> <th>Start Date</th> <th>Place</th> <th>Email</th> <th>Number</th> <th>Delete</th> <th>Update</th>\n";
 
 	while( $rows = mysqli_fetch_array( $results ) ) {
 		extract( $rows );
