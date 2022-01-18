@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Ajax Back-end</title>
+  </head>
+  <body>
+      <h1>Request List:</h1>
+    <div id="ajax">
+
+    </div>
+
+
+
+
+
+    <script>
+
+        fetch('http://localhost/hire/ajax_backend.php')
+        .then(response => response.json())
+        .then(data => {
+            let userHTML = ''
+            data.forEach(ajax_data => {
+                    userHTML = userHTML + 
+                    `<div class="rqst_name"> 
+                        <h4> Office Name :${ajax_data.office_name}</h4>
+                        <p> Start Date :${ajax_data.start_date}</p>
+                        <p> Office Location :${ajax_data.place}</p> 
+                        <p> Office Email :${ajax_data.email}</p> 
+                        <p> Contact Number :${ajax_data.number}</p> 
+                    </div>` 
+                    
+            });
+            const userslist = document.getElementById("ajax")
+            userslist.innerHTML = userHTML ;
+            //document.getElementById("ajax").innerHTML = JSON.stringify(data)
+
+        })
+        
+    </script>
+
+
+    
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+
+    
+  </body>
+</html>
