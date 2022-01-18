@@ -1,17 +1,22 @@
 <?php
-session_start();
-include('db_connect.php');
+
+	$id = $_GET["id"];
+
+	// $status = $_GET["status"];
+	$status = 'ACCEPTED';
+
+	require_once('db_connect.php');
+
+	$connect = mysqli_connect( HOST, USER, PASS, DB )
+
+		or die("Can not connect");
 
 
-$c="confirm";
-//$email= $_SESSION['email'];
-$id=$_GET['id'];
-$query= "UPDATE booking SET status='$c' WHERE id='$id' ";
-$data=mysqli_query($con,$query);
-if($data){
-	echo "Updated";
-}
-else{
-	echo "Failed to delete";
-}
+
+	mysqli_query( $connect, "UPDATE BOOKING SET status='$status' WHERE id = $id")
+
+		or die("Can not execute query");
+
+	echo "thanks for consider your time<br>";
+
 ?>
