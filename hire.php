@@ -106,7 +106,7 @@
                         <p>
                         <span class="colord">Email :</span> <br><input class=box type=text name=email> <br>
                         <p>
-                        <span class="colord">Number :</span> <br><input class=box type=text name=number> <br>
+                        <span class="colord">Salary :</span> <br><input class=box type=text name=salary> <br>
                         <p>
                         <input type=submit class="btn" value=Insert>
                     </form>

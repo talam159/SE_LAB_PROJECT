@@ -13,7 +13,7 @@ if($con){
             $response[$i]['start_date'] = $row ['start_date'];
             $response[$i]['place'] = $row ['place'];
             $response[$i]['email'] = $row ['email'];
-            $response[$i]['number'] = $row ['number'];
+            $response[$i]['salary'] = $row ['salary'];
             $i++;
         }
         echo json_encode($response,JSON_PRETTY_PRINT);

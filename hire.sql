@@ -7,7 +7,7 @@ CREATE table booking (
     start_date date NOT NULL,
     place varchar(100) NOT NULL,
     email varchar(30) NOT NULL,
-    number int(20) NOT NULL,
+    salary int(20) NOT NULL,
     
     PRIMARY KEY(id) 
 );

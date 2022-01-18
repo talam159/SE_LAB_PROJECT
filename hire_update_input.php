@@ -5,7 +5,7 @@ $office_name = $_GET["office_name"];
 $start_date = $_GET["start_date"];
 $place = $_GET["place"];
 $email = $_GET["email"];
-$number = $_GET["number"];
+$salary = $_GET["salary"];
 
 ?>
 
@@ -32,7 +32,7 @@ $number = $_GET["number"];
 	Email: <input type=email name=email value='<?php echo $email; ?>'>
 
 	<p>
-	Number: <input type=number name=number value='<?php echo $number; ?>'>
+	Salary: <input type=number name=salary value='<?php echo $salary; ?>'>
 
 	<p>	
 

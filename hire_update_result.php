@@ -5,7 +5,7 @@
 	$start_date = $_GET["start_date"];
 	$place = $_GET["place"];
 	$email = $_GET["email"];
-	$number = $_GET["number"];
+	$salary = $_GET["salary"];
 
 
 
@@ -17,7 +17,7 @@
 
 
 
-	$query 	= "UPDATE booking SET office_name='$office_name', start_date='$start_date', place='$place', email='$email', number='$number' WHERE id = $id";
+	$query 	= "UPDATE booking SET office_name='$office_name', start_date='$start_date', place='$place', email='$email', salary='$salary' WHERE id = $id";
 
 	echo $query;
 
@@ -29,7 +29,7 @@
 
 
 
-	echo "<p>Record updated:<br> office_name=$office_name <br> start_date=$start_date <br> place=$place <br> email=$email <br> number=$number";
+	echo "<p>Record updated:<br> office_name=$office_name <br> start_date=$start_date <br> place=$place <br> email=$email <br> salary=$salary";
 
 
 

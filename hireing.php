@@ -4,7 +4,7 @@
 	$start_date = $_GET["start_date"];
 	$place = $_GET["place"];
 	$email = $_GET["email"];
-	$number = $_GET["number"];
+	$salary = $_GET["salary"];
 
 
 
@@ -16,7 +16,7 @@
 
 
 
-	mysqli_query( $connect, "INSERT INTO booking VALUES ( '', '$office_name', '$start_date' , '$place', '$email' , '$number'  )" )
+	mysqli_query( $connect, "INSERT INTO booking VALUES ( '', '$office_name', '$start_date' , '$place', '$email' , '$salary'  )" )
 
 		or die("Can not execute query");
 

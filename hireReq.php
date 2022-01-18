@@ -8,7 +8,7 @@
 		or die("Can not execute query");
 
 	echo "<table border> \n";
-	echo "<th>Office Name</th> <th>Start Date</th> <th>Place</th> <th>Email</th> <th>Number</th> <th>Delete</th> <th>Update</th>\n";
+	echo "<th>Office Name</th> <th>Start Date</th> <th>Place</th> <th>Email</th> <th>Salary</th> <th>Delete</th> <th>Update</th>\n";
 
 	while( $rows = mysqli_fetch_array( $results ) ) {
 		extract( $rows );
@@ -17,7 +17,7 @@
 		echo "<td> $start_date </td>";
 		echo "<td> $place </td>";
 		echo "<td> $email </td>";
-		echo "<td> $number </td>";
+		echo "<td> $salary </td>";
 		echo "<td> <a href = 'hire_delete.php?id=$id'> Delete </a> </td>";
 		echo "<td> <a href = 'update_input.php?id=$id'> Update </a> </td>";
 		echo "</tr> \n";
