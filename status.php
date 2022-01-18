@@ -73,7 +73,7 @@
                         echo "<td> $event </td>";
                         echo "<td> $place </td>";
                         echo "<td> $date </td>";
-                        echo "<td> <a href = 'update_input.php?id=$id&f0=$f0&f1=$f1'> Accept </a> </td>";
+                        echo "<td> <a href = 'accept.php?id=$id'> Accept </a> </td>";
                         echo "<td> <a href = 'delete.php?id=$id'> Delete </a> </td>";
  
                         echo "</tr> \n";
