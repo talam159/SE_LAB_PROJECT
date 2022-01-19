@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selenium Testing</title>
+</head>
+<style>
+</style>
+<body>
+        
+            Generate ID : <input id="inpt" type="text"> 
+        
+            <button id="b1"> search</button>
+            <div id="userlist">
+                <h4>Office Name : <span id="office"></span></h4>
+                <h4>Office Location : <span id="location"></span></h4>
+               
+            </div>
+        
+        
+            <script>
+                const input = document.getElementById('inpt');
+                const button = document.getElementById('b1');
+        
+        
+                button.addEventListener('click', ()=>{
+                    let n = input.value;
+                    fetch('http://localhost/hire/sele_backend.php?id='+n)
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('office').innerText = JSON.stringify(data.content[0].office_name);
+                        document.getElementById('location').innerText = JSON.stringify(data.content[0].place);
+                    })
+                })
+               
+            </script>
+            
+        </body>
+        </html>
+        
+        
