@@ -30,7 +30,7 @@
             <div class="dropdown2">
                <li> <button onclick="myFunction2()"   class="dropbtn2">Log In</button> </li>
                 <div id="myDropdown2" class="dropdown-content2">
-                    <a href="mlogin.php">Log in as a Musician</a>
+                    <a href="mlogin.php" >Log in as a Musician</a>
                     <a href="login.php">Log in as an Audience</a>
                     
                 </div>
