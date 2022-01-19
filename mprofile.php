@@ -64,20 +64,30 @@ session_start();
           
                <?php
                  
-                  include('db.php');
-                  $str=$_SESSION['id'];
-                  $sql="select * from musician where m_id = $str";
-                  $res=mysqli_query($con,$sql);
-                  if(mysqli_num_rows($res)>0){
-                    while($row=mysqli_fetch_assoc($res)){
-                        $img=$row['image'];
+               //   include('db.php');
+                     $str=$_SESSION['id'];
+                 // $sql="select * from musician where m_id = $str";
+                //  $res=mysqli_query($con,$sql);
+                //  if(mysqli_num_rows($res)>0){
+                //    while($row=mysqli_fetch_assoc($res)){
+                 //       $img=$row['image'];
           
-                        }
-                    }
-                    
+                 //       }
+                //    }
+                
               ?>
+              <img id='myimg' src="" alt="" height="100"> 
+              <script>
+              fetch('http://localhost/SELAB/SE_LAB_PROJECT/image.php?id=' + <?php echo $str ?>)
+                .then(response => response.json())
+                .then(json => {
+                      //const obj= json['content'][0]['image'];
+                      //const myobj= JSON.stringify(obj);
+                      document.getElementById("myimg").src= 'img/'+json['content'][0]['image'] ;
+                });
+              </script>
           
-              <img  src="img/<?php echo $img?>" alt="" height="100"> 
+              
           
 
     <div class="herocontainer">
