@@ -61,7 +61,7 @@
           <div class="details">
             
 
-            </script> -->
+            
                 <?php
                     include('db.php');
                     
@@ -77,24 +77,48 @@
                     echo '<h1>'.'Genre: '.$row['Genre'].'</h1>';
                     echo '<iframe style="display:none;" name="target"></iframe>';
                     session_start();
-                    $sender_id=$_SESSION['id'];
+                    /*$sender_id=$_SESSION['id'];
                     $s='select * from follow where sender_id = '.$sender_id.' && receiver_id= '.$row['m_id'].'';
                     
                     $res1=mysqli_query($con,$s);
                     $num1 = mysqli_num_rows($res1);
                     if ($result = $con->query($s)){
 	                  $row1 = $result->fetch_assoc();
-                    }
+                    }*/
+                    echo "<script>";
+                    echo "fetch('http://localhost/SE_Lab/SE_LAB_PROJECT/follow2.php')";
+			              echo ".then(response => response.json())";
+			              echo ".then(json => {";
+				                
+				                echo " $num1 =  json['num1'] ";				
+			            	    
+			                echo"})";
+		                echo "})";
+                    echo "</script>";
                     if($num1==1){
-                      $output="<a href='follow.php?name=".$row['Name']."&id=".$row['m_id']."' target='target'> <button  type='button' class='cta' onclick='refresh()'>Unfollow</button> </a>";
-                      header("refresh: 1;");
+                      echo "<a href='follow.php?name=".$row['Name']."&id=".$row['m_id']."' target='target'> <button  id='btnchange1'  class='cta'  >Unfollow</button> </a>";
+                      //header("refresh: 1;");
+                      echo "<script>
+                              let btnChange = document.querySelector('#btnchange1');
+                              btnChange.addEventListener('click', () => {
+                                
+                                btnChange.innerHTML = 'follow ' ;
+                              });
+                            </script>";
                     }
                     else{
-                      $output="<a href='follow.php?name=".$row['Name']."&id=".$row['m_id']."' target='target'> <button  type='button' class='cta' onclick='refresh()'>Follow</button> </a>";
-                      header("refresh: 1;");
+                      echo "<a href='follow.php?name=".$row['Name']."&id=".$row['m_id']."' target='target'> <button id='btn2change' class='cta' >Follow</button> </a>";
+                      //header("refresh: 1;");
+                      echo "<script>
+                              let btnChange2 = document.getElementById('btn2change');
+                              btnChange2.addEventListener('click', () => {
+                                
+                                btnChange2.innerHTML = 'unfollow' ;
+                              });
+                            </script>";
                     }
 
-                    echo $output;
+                    //echo $output;
                     
                      //header("refresh: 0;");
                     // echo "<a href='follow.php?name=".$row['Name']."&id=".$row['m_id']."' target='target'> <button  type='button' class='cta' onclick='button1()'>Follow</button> </a>" ;                  
